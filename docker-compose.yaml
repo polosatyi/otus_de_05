@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+
+  db:
+    image: postgres:12.1-alpine
+    restart: "on-failure:10"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "0.0.0.0:5432:5432"
+
+volumes:
+  pgdata:

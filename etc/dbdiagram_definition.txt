@@ -1,0 +1,40 @@
+Table orders {
+  id int PK
+  user_id int
+  order_date date
+  status varchar
+}
+
+Table payments {
+  id int
+  c
+  payment_method int
+  amount int
+}
+
+Table customers {
+  id int PK
+  first_name varchar
+  last_name varchar
+  email varchar
+}
+
+Table items {
+  id int PK
+  title varchar
+  price int
+}
+
+Table order_items {
+  id int PK
+  order_id int
+  item_id int
+}
+
+Ref: orders.user_id > customers.id
+
+Ref: payments.order_id > orders.id
+
+Ref: order_items.order_id -> orders.id
+
+Ref: order_items.item_id -> items.id
